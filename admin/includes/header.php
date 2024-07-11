@@ -39,6 +39,12 @@
 
     <link rel="shortcut icon" href="./assets/images/favicon.png"/>
     <script src="./assets/vendors/toastr/toastr.js"></script>
+    <style>
+        .feather{
+            width: 16px;
+            height: 16px;
+        }
+    </style>
 </head>
 <body>
 <div class="main-wrapper">

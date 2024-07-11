@@ -30,6 +30,7 @@
                                             <th>Phone</th>
                                             <th>Status</th>
                                             <th>Created At</th>
+                                            <th>Last Updated</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -52,17 +53,24 @@
                                                     $status = '<span class="badge bg-danger">Inactive</span>';
                                                 }
                                                 $created_at = $admin['created_at'];
+                                                $updated_at = $admin['updated_at'];
+                                                $created_at = date('D, d M Y h:i A', strtotime($created_at));
+                                                $updated_at = date('D, d M Y h:i A', strtotime($updated_at));
                                                 echo "<tr>
                                                         <td>$id</td>
                                                         <td>$name</td>
                                                         <td>$email</td>
                                                         <td>$phone</td>
-                                                        
                                                         <td>$status</td>
                                                         <td>$created_at</td>
+                                                        <td>$updated_at</td>
                                                         <td>
-                                                            <a href='edit_admin.php?id=$id' class='btn btn-sm btn-warning'>Edit</a>
-                                                            <a href='delete_admin.php?id=$id' class='btn btn-sm btn-danger'>Delete</a>
+                                                            <a href='edit-admin.php?id=$id' class='btn btn-sm btn-warning'>
+                                                                <i data-feather='edit'></i>
+                                                            </a>
+                                                            <a href='delete-admin.php?id=$id' class='btn btn-sm btn-danger'>
+                                                                <i data-feather='trash-2'></i>
+                                                            </a>
                                                         </td>
                                                     </tr>";
                                             }else{

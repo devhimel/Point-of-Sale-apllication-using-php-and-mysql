@@ -132,3 +132,17 @@ function deleteRecord($table, $id)
     $result = mysqli_query($conn, $sql);
     return $result;
 }
+
+// Check parameter is set or not
+function checkParam($param)
+{
+    if(isset($_GET[$param])){
+        if($_GET[$param] != ''){
+            return $_GET[$param];
+        }else{
+            return '<h5>No Id found</h5>';
+        }
+    }else{
+        return '<h5>No Id given in url</h5>';
+    }
+}
