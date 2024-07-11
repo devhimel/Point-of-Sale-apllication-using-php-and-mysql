@@ -45,7 +45,7 @@
                         <div class="row">
                             <div class="col-md-12 ps-md-0">
                                 <div class="auth-form-wrapper px-4 py-5">
-                                    <a href="#" class="noble-ui-logo d-block mb-2 text-center">Noble<span>UI</span></a>
+                                    <a href="index.php" class="noble-ui-logo d-block mb-2 text-center">Noble<span>UI</span></a>
                                     <h5 class="text-muted fw-normal mb-4 text-center">Welcome back! Log in to your account.</h5>
                                     <form class="forms-sample px-lg-3 px-2">
                                         <div class="mb-3">
