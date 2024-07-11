@@ -119,3 +119,45 @@ if(isset($_POST['update_category'])) {
         redirect('edit-categories.php?id='.$id, 'Something went wrong', 'danger');
     }
 }
+
+if(isset($_POST['save_unit'])){
+    $name = validate_input($_POST['name']);
+    $short_name = validate_input($_POST['short_name']);
+    $status = validate_input($_POST['status']);
+
+    // Input validation
+    if($name != '' && $short_name != ''){
+        $data = [
+            'name' => $name,
+            'short_name' => $short_name,
+            'status' => $status
+        ];
+        $result = insertRecord('units', $data);
+        if($result){
+            redirect('units.php', 'Unit created successfully', 'success');
+        }else{
+            redirect('create-units.php', 'Something went wrong', 'danger');
+        }
+    }else{
+        redirect('create-units.php', 'Please fill all the fields', 'danger');
+    }
+}
+
+if(isset($_POST['update_unit'])) {
+    $id = validate_input($_POST['id']);
+    $name = validate_input($_POST['name']);
+    $short_name = validate_input($_POST['short_name']);
+    $status = validate_input($_POST['status']);
+
+    $data = [
+        'name' => $name,
+        'short_name' => $short_name,
+        'status' => $status
+    ];
+    $result = updateRecord('units', $data,  $id);
+    if($result){
+        redirect('units.php', 'Unit updated successfully', 'success');
+    }else{
+        redirect('edit-units.php?id='.$id, 'Something went wrong', 'danger');
+    }
+}
