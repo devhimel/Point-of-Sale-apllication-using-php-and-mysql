@@ -1,3 +1,8 @@
+<?php require "config/function.php";
+if(isset($_SESSION['loggedIn'])) {
+    redirect('admin/index.php', 'Already logged in.', 'success');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,16 +50,17 @@
                         <div class="row">
                             <div class="col-md-12 ps-md-0">
                                 <div class="auth-form-wrapper px-4 py-5">
-                                    <a href="index.php" class="noble-ui-logo d-block mb-2 text-center">Noble<span>UI</span></a>
+                                    <a href="index.php" class="noble-ui-logo d-block mb-2 text-center">POS<span> Application</span></a>
                                     <h5 class="text-muted fw-normal mb-4 text-center">Welcome back! Log in to your account.</h5>
-                                    <form class="forms-sample px-lg-3 px-2">
+                                    <?php display_message() ?>
+                                    <form action="login-code.php" class="forms-sample px-lg-3 px-2" method="post">
                                         <div class="mb-3">
                                             <label for="userEmail" class="form-label">Email address</label>
-                                            <input type="email" class="form-control" id="userEmail" placeholder="Email">
+                                            <input type="email" name="email" class="form-control" id="userEmail" placeholder="Email" required value="<?= isset($_POST['email']) ? $_POST['email'] : '' ?>">
                                         </div>
                                         <div class="mb-3">
                                             <label for="userPassword" class="form-label">Password</label>
-                                            <input type="password" class="form-control" id="userPassword" autocomplete="current-password" placeholder="Password">
+                                            <input type="password" name="password" class="form-control" id="userPassword" autocomplete="current-password" placeholder="Password" required>
                                         </div>
                                         <div class="form-check mb-3">
                                             <input type="checkbox" class="form-check-input" id="authCheck">
@@ -63,9 +69,9 @@
                                             </label>
                                         </div>
                                         <div>
-                                            <a href="../../dashboard.html" class="btn btn-primary me-2 mb-2 mb-md-0 text-white w-100">Login</a>
+                                            <button type="submit" name="login" class="btn btn-primary me-2 mb-2 mb-md-0 w-100">Login</button>
                                         </div>
-                                        <a href="register.html" class="d-block mt-3 text-muted text-center">Not a user? Sign up</a>
+                                        <a href="register.php" class="d-block mt-3 text-muted text-center">Not a user? Sign up</a>
                                     </form>
                                 </div>
                             </div>
@@ -73,7 +79,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

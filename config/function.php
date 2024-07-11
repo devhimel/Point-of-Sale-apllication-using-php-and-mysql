@@ -146,3 +146,9 @@ function checkParam($param)
         return '<h5>No Id given in url</h5>';
     }
 }
+
+function logout()
+{
+    unset($_SESSION['loggedIn']);
+    unset($_SESSION['loggedInUser']);
+}

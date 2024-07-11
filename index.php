@@ -1,2 +1,1 @@
-<?php
-echo "Hello World";
+<a href="login.php">Login</a>

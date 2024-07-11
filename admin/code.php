@@ -77,3 +77,45 @@ if(isset($_POST['update_admin'])) {
         redirect('edit-admin.php?id='.$id, 'Please fill all the fields', 'danger');
     }
 }
+
+if(isset($_POST['save_category'])) {
+    $name = validate_input($_POST['name']);
+    $description = validate_input($_POST['description']);
+    $status = validate_input($_POST['status']);
+
+    // Input validation
+    if($name != ''){
+        $data = [
+            'name' => $name,
+            'description' => $description,
+            'status' => $status
+        ];
+        $result = insertRecord('categories', $data);
+        if($result){
+            redirect('categories.php', 'Category created successfully', 'success');
+        }else{
+            redirect('create-categories.php', 'Something went wrong', 'danger');
+        }
+    }else{
+        redirect('create-categories.php', 'Please fill all the fields', 'danger');
+    }
+}
+
+if(isset($_POST['update_category'])) {
+    $id = validate_input($_POST['id']);
+    $name = validate_input($_POST['name']);
+    $description = validate_input($_POST['description']);
+    $status = validate_input($_POST['status']);
+
+    $data = [
+        'name' => $name,
+        'description' => $description,
+        'status' => $status
+    ];
+    $result = updateRecord('categories', $data,  $id);
+    if($result){
+        redirect('categories.php', 'Category updated successfully', 'success');
+    }else{
+        redirect('edit-categories.php?id='.$id, 'Something went wrong', 'danger');
+    }
+}
