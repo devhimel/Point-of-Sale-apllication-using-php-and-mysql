@@ -15,11 +15,11 @@ if(isset($_POST['login'])) {
                 $admin = mysqli_fetch_assoc($result);
                 $hashedPassword = $admin['password'];
                 if(!password_verify($password, $hashedPassword)){
-                    redirect('login.php', 'Invalid password.', 'danger');
+                    redirect('login.php', 'Invalid password.', 'error');
                 }
 
                 if($admin['status'] == 0){
-                    redirect('login.php', 'Your account is deactivated.', 'danger');
+                    redirect('login.php', 'Your account is deactivated.', 'error');
                 }
 
                 $_SESSION['loggedIn'] = true;
@@ -34,13 +34,13 @@ if(isset($_POST['login'])) {
 
 
             }else{
-                redirect('login.php', 'Invalid email.', 'danger');
+                redirect('login.php', 'Invalid email.', 'error');
             }
 
         }else{
-            redirect('login.php', 'Something went wrong', 'danger');
+            redirect('login.php', 'Something went wrong', 'error');
         }
     }else{
-        redirect('login.php', 'Please fill required fields.', 'danger');
+        redirect('login.php', 'Please fill required fields.', 'error');
     }
 }

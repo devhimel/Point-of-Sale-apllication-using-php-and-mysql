@@ -28,25 +28,27 @@
                 <div class="collapse" id="emails">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="pages/email/inbox.html" class="nav-link">Create Product</a>
+                            <a href="products.php" class="nav-link">All Product</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/email/read.html" class="nav-link">All Products</a>
+                            <a href="categories.php" class="nav-link">Categories List</a>
                         </li>
                         <li class="nav-item">
-                            <a href="categories.php" class="nav-link">Category</a>
+                            <a href="brands.php" class="nav-link">Brands List</a>
                         </li>
                         <li class="nav-item">
-                            <a href="units.php" class="nav-link">Unit</a>
+                            <a href="units.php" class="nav-link">Units List</a>
                         </li>
                     </ul>
                 </div>
             </li>
 
+
+
             <li class="nav-item nav-category">Manage Users</li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" role="button" aria-expanded="false" aria-controls="general-pages">
-                    <i class="link-icon" data-feather="book"></i>
+                    <i class="link-icon" data-feather="user-check"></i>
                     <span class="link-title">Admin / Staff</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>

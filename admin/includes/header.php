@@ -14,6 +14,7 @@
     <title>Dashboard - Point of Sale System in PHP & MySQL</title>
     <script src="./assets/vendors/jquery/jquery.js"></script>
 
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,11 +27,14 @@
 
     <!-- Plugin css for this page -->
     <link rel="stylesheet" href="./assets/vendors/flatpickr/flatpickr.min.css">
-    <link rel="stylesheet" href="./assets/vendors/toastr/toastr.css">
+    <link rel="stylesheet" href="./assets/vendors/datatables-bs5/datatables.bootstrap5.css">
+
+<!--    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"  />-->
     <!-- End plugin css for this page -->
 
     <!-- inject:css -->
     <link rel="stylesheet" href="./assets/fonts/feather-font/css/iconfont.css">
+    <link rel="stylesheet" href="./assets/fonts/tabler-icons.css">
     <!--    <link rel="stylesheet" href="./assets/vendors/flag-icon-css/css/flag-icon.min.css">-->
     <!-- endinject -->
 
@@ -40,12 +44,14 @@
 
     <link rel="shortcut icon" href="./assets/images/favicon.png"/>
     <script src="./assets/vendors/toastr/toastr.js"></script>
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
     <style>
         .feather{
             width: 16px;
             height: 16px;
         }
     </style>
+    <link rel="stylesheet" href="./assets/vendors/toastr/toastr.css">
 </head>
 <body>
 <div class="main-wrapper">

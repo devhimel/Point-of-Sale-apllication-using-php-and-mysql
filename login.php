@@ -14,7 +14,8 @@ if(isset($_SESSION['loggedIn'])) {
     <meta name="keywords" content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
     <title>NobleUI - HTML Bootstrap 5 Admin Dashboard Template</title>
-
+    <script src="./admin/assets/vendors/jquery/jquery.js"></script>
+    <script src="./admin/assets/vendors/toastr/toastr.js"></script>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,6 +39,8 @@ if(isset($_SESSION['loggedIn'])) {
     <!-- End layout styles -->
 
     <link rel="shortcut icon" href="./admin/assets/images/favicon.png" />
+
+    <link rel="stylesheet" href="./admin/assets/vendors/toastr/toastr.css">
 </head>
 <body>
 <div class="main-wrapper">
@@ -93,6 +96,7 @@ if(isset($_SESSION['loggedIn'])) {
 <!-- inject:js -->
 <script src="./admin/assets/vendors/feather-icons/feather.min.js"></script>
 <script src="./admin/assets/js/template.js"></script>
+
 <!-- endinject -->
 
 <!-- Custom js for this page -->

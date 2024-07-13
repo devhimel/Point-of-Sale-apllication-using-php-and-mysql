@@ -18,6 +18,8 @@
 
 <!-- inject:js -->
 <script src="./assets/vendors/feather-icons/feather.min.js"></script>
+<script src="assets/vendors/datatables-bs5/datatables-bootstrap5.js"></script>
+<!--<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>-->
 
 <script src="./assets/js/template.js"></script>
 <!-- endinject -->

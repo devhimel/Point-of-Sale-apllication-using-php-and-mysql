@@ -27,11 +27,13 @@ function display_message()
 {
     if (isset($_SESSION['message'])) {
         ?>
-
-        <div class="alert alert-<?= $_SESSION['message_type'] ?> alert-dismissible fade show" role="alert">
-            <?= $_SESSION['message'] ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+        <script>
+            toastr.<?= $_SESSION['message_type'] ?>("<?= $_SESSION['message'] ?>", "<?= ucfirst($_SESSION['message_type']) ?>");
+        </script>
+<!--        <div class="alert alert---><?php //= $_SESSION['message_type'] ?><!-- alert-dismissible fade show" role="alert">-->
+<!--            --><?php //= $_SESSION['message'] ?>
+<!--            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>-->
+<!--        </div>-->
         <?php
         unset($_SESSION['message']);
     }
@@ -93,33 +95,7 @@ function getRecordById($table, $id)
     $id = validate_input($id);
     $sql = "SELECT * FROM $table WHERE id = '$id' LIMIT 1";
     $result = mysqli_query($conn, $sql);
-
-    if($result){
-
-        if(mysqli_num_rows($result) > 0){
-            $row = mysqli_fetch_assoc($result);
-            $response = [
-                'status' => 200,
-                'data' => $row,
-                'message' => 'Record found'
-            ];
-            return $response;
-        }else{
-            $response = [
-                'status' => 404,
-                'message' => 'Record not found'
-            ];
-            return $response;
-        }
-
-    }else{
-        $response = [
-            'status' => 500,
-            'message' => 'Something went wrong'
-        ];
-
-        return $response;
-    }
+    return $result;
 }
 
 // Delete record from database
@@ -151,4 +127,16 @@ function logout()
 {
     unset($_SESSION['loggedIn']);
     unset($_SESSION['loggedInUser']);
+}
+
+// Generate Random unique product code
+function generateRandomCode($length = 6) {
+    // Ensuring that the requested length is within a reasonable limit
+    if ($length <= 0) {
+        return '';
+    }
+
+    $prefix = uniqid('', true); // Generates a unique identifier with more entropy
+    $randomString = substr(md5($prefix . microtime()), 0, $length); // Combine with microtime for extra uniqueness and hash it with md5
+    return $randomString;
 }
