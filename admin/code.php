@@ -676,3 +676,5 @@ if($_GET['action'] === 'deleteSingleProduct'){
 }
 
 
+
+
