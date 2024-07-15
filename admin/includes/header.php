@@ -52,6 +52,7 @@
         }
     </style>
     <link rel="stylesheet" href="./assets/vendors/toastr/toastr.css">
+    <link rel="stylesheet" href="./assets/vendors/select2/select2.css">
 </head>
 <body>
 <div class="main-wrapper">

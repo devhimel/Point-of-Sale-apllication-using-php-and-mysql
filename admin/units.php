@@ -47,7 +47,7 @@
             </div>
             <!-- end data table -->
 
-            <!-- add Category Modal -->
+            <!-- add Unit Modal -->
             <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
@@ -91,7 +91,7 @@
                     </div>
                 </div>
             </div>
-            <!-- end add Category Modal -->
+            <!-- end add Unit Modal -->
             <!-- start edit Category Modal -->
             <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">

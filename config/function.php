@@ -130,13 +130,16 @@ function logout()
 }
 
 // Generate Random unique product code
-function generateRandomCode($length = 6) {
+function generateRandomCode($length = 8) {
     // Ensuring that the requested length is within a reasonable limit
     if ($length <= 0) {
         return '';
     }
-
-    $prefix = uniqid('', true); // Generates a unique identifier with more entropy
-    $randomString = substr(md5($prefix . microtime()), 0, $length); // Combine with microtime for extra uniqueness and hash it with md5
-    return $randomString;
+    $digits = '0123456789';
+    $firstDigit = '123456789'; // First digit cannot be zero
+    $randomNumber = $firstDigit[rand(0, strlen($firstDigit) - 1)];
+    for ($i = 1; $i < $length; $i++) {
+        $randomNumber .= $digits[rand(0, strlen($digits) - 1)];
+    }
+    return $randomNumber;
 }
