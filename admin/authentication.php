@@ -3,7 +3,7 @@
 if(isset($_SESSION['loggedIn'])) {
     $email = $_SESSION['loggedInUser']['email'];
 
-    $sql = "SELECT * FROM admins WHERE email = '$email' LIMIT 1";
+    $sql = "SELECT * FROM users WHERE email = '$email' LIMIT 1";
     $result = mysqli_query($conn, $sql);
     if(mysqli_num_rows($result) > 0){
 

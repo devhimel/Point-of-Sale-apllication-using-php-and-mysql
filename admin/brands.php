@@ -225,7 +225,7 @@
 
             function fetchBrands() {
                 $.ajax({
-                    url: "code.php?action=fetchBrands",
+                    url: "./code/brands-code.php?action=fetchBrands",
                     method: "POST",
                     dataType: "json",
                     success: function (response) {
@@ -238,8 +238,8 @@
                                 value.name,
                                 value.description,
                                 value.status == 1 ? '<span class="badge bg-success">Active</span>' : '<span class="badge bg-danger">Inactive</span>',
-                                value.created_at,
-                                value.updated_at,
+                                new Date(value.created_at).toDateString(),
+                                new Date(value.updated_at).toDateString(),
                                 `<button type="button" class="btn btn-sm btn-warning editBtn" value="${value.id}"> <i class="ti ti-edit text-white"></i></button>
                                  <button type="button" class="btn btn-sm btn-danger deleteBtn" value="${value.id}"> <i class="ti ti-trash text-white"></i></button>
                                  <input type="hidden" class="delete_img" value="${value.image}">`
@@ -253,7 +253,7 @@
                 $('#insertBtn').attr('disabled', 'disabled');
                 e.preventDefault();
                 $.ajax({
-                    url: "code.php?action=insertBrand",
+                    url: "./code/brands-code.php?action=insertBrand",
                     method: "POST",
                     data: new FormData(this),
                     contentType: false,
@@ -283,7 +283,7 @@
             $('#brandTable').on('click', '.editBtn', function () {
                 var id = $(this).val();
                 $.ajax({
-                    url: "code.php?action=fetchSingleBrand",
+                    url: "./code/brands-code.php?action=fetchSingleBrand",
                     method: "POST",
                     dataType: "json",
                     data: {id: id},
@@ -305,7 +305,7 @@
                 $('#updateBtn').attr('disabled', 'disabled');
                 e.preventDefault();
                 $.ajax({
-                    url: "code.php?action=updateBrand",
+                    url: "./code/brands-code.php?action=updateBrand",
                     method: "POST",
                     data: new FormData(this),
                     contentType: false,
@@ -336,7 +336,7 @@
                     var id = $(this).val();
                     var image = $(this).closest('tr').find('.delete_img').val();
                     $.ajax({
-                        url: "code.php?action=deleteSingleBrand",
+                        url: "./code/brands-code.php?action=deleteSingleBrand",
                         method: "POST",
                         dataType: "json",
                         data: {id: id, image: image},

@@ -148,7 +148,7 @@
 
             function fetchCategories() {
                 $.ajax({
-                    url: "code.php?action=fetchCategories",
+                    url: "./code/categories-code.php?action=fetchCategories",
                     method: "POST",
                     dataType: "json",
                     success: function (response) {
@@ -160,8 +160,8 @@
                                 value.name,
                                 value.description,
                                 value.status == 1 ? '<span class="badge bg-success">Active</span>' : '<span class="badge bg-danger">Inactive</span>',
-                                value.created_at,
-                                value.updated_at,
+                                new Date(value.created_at).toDateString(),
+                                new Date(value.updated_at).toDateString(),
                                 `<button type="button" class="btn btn-sm btn-warning editBtn" value="${value.id}"> <i class="ti ti-edit text-white"></i></button>
                              <button type="button" class="btn btn-sm btn-danger deleteBtn" value="${value.id}"> <i class="ti ti-trash text-white"></i></button>`
                             ]).draw(false);
@@ -174,7 +174,7 @@
                 $('#insertBtn').attr('disabled', 'disabled');
                 e.preventDefault();
                 $.ajax({
-                    url: "code.php?action=insertCategory",
+                    url: "./code/categories-code.php?action=insertCategory",
                     method: "POST",
                     data: new FormData(this),
                     contentType: false,
@@ -204,7 +204,7 @@
             $('#categoryTable').on('click', '.editBtn', function () {
                 var id = $(this).val();
                 $.ajax({
-                    url: "code.php?action=fetchSingleCategory",
+                    url: "./code/categories-code.php?action=fetchSingleCategory",
                     method: "POST",
                     dataType: "json",
                     data: {id: id},
@@ -223,7 +223,7 @@
                 $('#updateBtn').attr('disabled', 'disabled');
                 e.preventDefault();
                 $.ajax({
-                    url: "code.php?action=updateCategory",
+                    url: "./code/categories-code.php?action=updateCategory",
                     method: "POST",
                     data: new FormData(this),
                     contentType: false,
@@ -254,7 +254,7 @@
                 if(confirm("Are you sure you want to delete this category?")) {
                     var id = $(this).val();
                     $.ajax({
-                        url: "code.php?action=deleteSingleCategory",
+                        url: "./code/categories-code.php?action=deleteSingleCategory",
                         method: "POST",
                         dataType: "json",
                         data: {id: id},

@@ -6,7 +6,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Customers</li>
+                    <li class="breadcrumb-item active">Suppliers</li>
                 </ol>
             </nav>
             <!-- end breadcrumb -->
@@ -15,21 +15,21 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header d-flex align-items-center justify-content-between">
-                            <h4 class="card-title mb-0">Customers List</h4>
+                            <h4 class="card-title mb-0">Suppliers List</h4>
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#addModal">
-                                Add Customer
+                                Add Supplier
                             </button>
                         </div>
                         <div class="card-body">
                             <?php display_message() ?>
                             <div class="table-responsive">
-                                <table id="customersTable" class="table dt-responsive nowrap"
+                                <table id="suppliersTable" class="table dt-responsive nowrap"
                                        style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Customer Code</th>
+                                        <th>Supplier Code</th>
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Phone</th>
@@ -49,12 +49,12 @@
                 </div>
             </div>
             <!-- end data table -->
-            <!-- add Customer Modal -->
+            <!-- add Supplier Modal -->
             <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Add Customer</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Create Supplier</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="btn-close"></button>
                         </div>
@@ -63,31 +63,31 @@
                                 <div class="row">
                                     <div class="col-6 mb3">
                                         <label class="form-label">Name <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="name" placeholder="Enter Customer Name">
+                                        <input type="text" class="form-control" name="name" placeholder="Enter Supplier Name">
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Email</label>
-                                        <input type="email" class="form-control" name="email" placeholder="Enter Customer Email">
+                                        <input type="email" class="form-control" name="email" placeholder="Enter Supplier Email">
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Country</label>
-                                        <input type="text" class="form-control" name="country" placeholder="Enter Customer Country">
+                                        <input type="text" class="form-control" name="country" placeholder="Enter Supplier Country">
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label class="form-label">City</label>
-                                        <input type="text" class="form-control" name="city" placeholder="Enter Customer City">
+                                        <input type="text" class="form-control" name="city" placeholder="Enter Supplier City">
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Phone (Optional)</label>
-                                        <input type="text" class="form-control" name="phone" placeholder="Enter Customer Phone Number">
+                                        <input type="text" class="form-control" name="phone" placeholder="Enter Supplier Phone Number">
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Tax Number</label>
-                                        <input type="text" class="form-control" name="tax_number" placeholder="Enter Customer Tax Number">
+                                        <input type="text" class="form-control" name="tax_number" placeholder="Enter Supplier Tax Number">
                                     </div>
                                     <div class="col-12 mb-3">
                                         <label class="form-label">Address</label>
-                                        <textarea name="address" cols="30" rows="4" class="form-control" placeholder="Enter Customer Address"></textarea>
+                                        <textarea name="address" cols="30" rows="4" class="form-control" placeholder="Enter Supplier Address"></textarea>
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Status <span class="text-danger">*</span></label>
@@ -106,13 +106,13 @@
                     </div>
                 </div>
             </div>
-            <!-- end add Customer Modal -->
-            <!-- start edit Customer Modal -->
+            <!-- end add Supplier Modal -->
+            <!-- start edit Supplier Modal -->
             <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Edit Customer</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Edit Supplier</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="btn-close"></button>
                         </div>
@@ -122,31 +122,31 @@
                                 <div class="row">
                                     <div class="col-6 mb3">
                                         <label class="form-label">Name <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control name" name="name" placeholder="Enter Customer Name">
+                                        <input type="text" class="form-control name" name="name" placeholder="Enter Supplier Name">
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Email</label>
-                                        <input type="email" class="form-control email" name="email" placeholder="Enter Customer Email">
+                                        <input type="email" class="form-control email" name="email" placeholder="Enter Supplier Email">
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Country</label>
-                                        <input type="text" class="form-control country" name="country" placeholder="Enter Customer Country">
+                                        <input type="text" class="form-control country" name="country" placeholder="Enter Supplier Country">
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label class="form-label">City</label>
-                                        <input type="text" class="form-control city" name="city" placeholder="Enter Customer City">
+                                        <input type="text" class="form-control city" name="city" placeholder="Enter Supplier City">
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Phone (Optional)</label>
-                                        <input type="text" class="form-control phone" name="phone" placeholder="Enter Customer Phone Number">
+                                        <input type="text" class="form-control phone" name="phone" placeholder="Enter Supplier Phone Number">
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Tax Number</label>
-                                        <input type="text" class="form-control tax_number" name="tax_number" placeholder="Enter Customer Tax Number">
+                                        <input type="text" class="form-control tax_number" name="tax_number" placeholder="Enter Supplier Tax Number">
                                     </div>
                                     <div class="col-12 mb-3">
                                         <label class="form-label">Address</label>
-                                        <textarea name="address" cols="30" rows="4" class="form-control address" placeholder="Enter Customer Address"></textarea>
+                                        <textarea name="address" cols="30" rows="4" class="form-control address" placeholder="Enter Supplier Address"></textarea>
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Status <span class="text-danger">*</span></label>
@@ -165,19 +165,19 @@
                     </div>
                 </div>
             </div>
-            <!-- end edit Customer Modal -->
+            <!-- end edit Supplier Modal -->
 
         </div>
     </div>
 
     <script>
         $(document).ready(function () {
-            let table = $('#customersTable').DataTable();
-            fetchCustomers();
+            let table = $('#suppliersTable').DataTable();
+            fetchSuppliers();
 
-            function fetchCustomers() {
+            function fetchSuppliers() {
                 $.ajax({
-                    url: "./code/customers-code.php?action=fetchCustomers",
+                    url: "./code/suppliers-code.php?action=fetchSuppliers",
                     method: "POST",
                     dataType: "json",
                     success: function (response) {
@@ -206,7 +206,7 @@
                 $('#insertBtn').attr('disabled', 'disabled');
                 e.preventDefault();
                 $.ajax({
-                    url: "./code/customers-code.php?action=insertCustomer",
+                    url: "./code/suppliers-code.php?action=insertSupplier",
                     method: "POST",
                     data: new FormData(this),
                     contentType: false,
@@ -219,7 +219,7 @@
                             $('#insertBtn').attr('disabled', false);
                             $('#addModal').modal('hide');
                             toastr.success(response.message, 'Success');
-                            fetchCustomers();
+                            fetchSuppliers();
                         } else if (response.status == 500) {
                             $('#insertBtn').attr('disabled', false);
                             toastr.error(response.message, 'Error!');
@@ -233,10 +233,10 @@
             });
 
             // edit category
-            $('#customersTable').on('click', '.editBtn', function () {
+            $('#suppliersTable').on('click', '.editBtn', function () {
                 var id = $(this).val();
                 $.ajax({
-                    url: "./code/customers-code.php?action=fetchSingleCustomer",
+                    url: "./code/suppliers-code.php?action=fetchSingleSupplier",
                     method: "POST",
                     dataType: "json",
                     data: {id: id},
@@ -260,7 +260,7 @@
                 $('#updateBtn').attr('disabled', 'disabled');
                 e.preventDefault();
                 $.ajax({
-                    url: "./code/customers-code.php?action=updateCustomer",
+                    url: "./code/suppliers-code.php?action=updateSupplier",
                     method: "POST",
                     data: new FormData(this),
                     contentType: false,
@@ -273,7 +273,7 @@
                             $('#updateBtn').attr('disabled', false);
                             $('#editModal').modal('hide');
                             toastr.success(response.message, 'Success');
-                            fetchCustomers();
+                            fetchSuppliers();
                         } else if (response.status == 500) {
                             $('#updateBtn').attr('disabled', false);
                             toastr.error(response.message, 'Error!');
@@ -287,17 +287,17 @@
             });
 
             // Delete Category
-            $('#customersTable').on('click', '.deleteBtn', function () {
-                if (confirm("Are you sure you want to delete this customer?")) {
+            $('#suppliersTable').on('click', '.deleteBtn', function () {
+                if (confirm("Are you sure you want to delete this supplier?")) {
                     var id = $(this).val();
                     $.ajax({
-                        url: "./code/customers-code.php?action=deleteSingleCustomer",
+                        url: "./code/suppliers-code.php?action=deleteSingleSupplier",
                         method: "POST",
                         dataType: "json",
                         data: {id: id},
                         success: function (response) {
                             if (response.status == 200) {
-                                fetchCustomers();
+                                fetchSuppliers();
                                 toastr.success(response.message, 'Success');
                             } else if (response.status == 500) {
                                 toastr.error(response.message, 'Error!');

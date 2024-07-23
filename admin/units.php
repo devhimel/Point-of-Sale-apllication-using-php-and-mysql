@@ -148,7 +148,7 @@
 
             function fetchUnits() {
                 $.ajax({
-                    url: "code.php?action=fetchUnits",
+                    url: "./code/units-code.php?action=fetchUnits",
                     method: "POST",
                     dataType: "json",
                     success: function (response) {
@@ -160,8 +160,8 @@
                                 value.name,
                                 value.short_name,
                                 value.status == 1 ? '<span class="badge bg-success">Active</span>' : '<span class="badge bg-danger">Inactive</span>',
-                                value.created_at,
-                                value.updated_at,
+                                new Date(value.created_at).toDateString(),
+                                new Date(value.updated_at).toDateString(),
                                 `<button type="button" class="btn btn-sm btn-warning editBtn" value="${value.id}"> <i class="ti ti-edit text-white"></i></button>
                              <button type="button" class="btn btn-sm btn-danger deleteBtn" value="${value.id}"> <i class="ti ti-trash text-white"></i></button>`
                             ]).draw(false);
@@ -174,7 +174,7 @@
                 $('#insertBtn').attr('disabled', 'disabled');
                 e.preventDefault();
                 $.ajax({
-                    url: "code.php?action=insertUnit",
+                    url: "./code/units-code.php?action=insertUnit",
                     method: "POST",
                     data: new FormData(this),
                     contentType: false,
@@ -204,7 +204,7 @@
             $('#unitTable').on('click', '.editBtn', function () {
                 var id = $(this).val();
                 $.ajax({
-                    url: "code.php?action=fetchSingleUnit",
+                    url: "./code/units-code.php?action=fetchSingleUnit",
                     method: "POST",
                     dataType: "json",
                     data: {id: id},
@@ -223,7 +223,7 @@
                 $('#updateBtn').attr('disabled', 'disabled');
                 e.preventDefault();
                 $.ajax({
-                    url: "code.php?action=updateUnit",
+                    url: "./code/units-code.php?action=updateUnit",
                     method: "POST",
                     data: new FormData(this),
                     contentType: false,
@@ -254,7 +254,7 @@
                 if (confirm("Are you sure you want to delete this unit?")) {
                     var id = $(this).val();
                     $.ajax({
-                        url: "code.php?action=deleteSingleUnit",
+                        url: "./code/units-code.php?action=deleteSingleUnit",
                         method: "POST",
                         dataType: "json",
                         data: {id: id},

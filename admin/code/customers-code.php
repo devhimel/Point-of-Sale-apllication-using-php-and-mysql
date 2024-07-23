@@ -1,17 +1,26 @@
 <?php
 // Database Connection
-require "../config/function.php";
+require "../../config/function.php";
 
 // Add a customer record into database
 if ($_GET['action'] === 'insertCustomer') {
-    if ($_POST['name'] != '' && $_POST['status'] != '') {
-        $name = validate_input($_POST['name']);
-        $email = validate_input($_POST['email']);
-        $phone = validate_input($_POST['phone']);
-        $status = validate_input($_POST['status']);
+    $name = validate_input($_POST['name']);
+    $email = validate_input($_POST['email']);
+    $country = validate_input($_POST['country']);
+    $city = validate_input($_POST['city']);
+    $tax_number = validate_input($_POST['tax_number']);
+    $phone = validate_input($_POST['phone']);
+    $address = validate_input($_POST['address']);
+    $status = validate_input($_POST['status']);
+    if ($name != '' && $status != '') {
         $data = [
             'name' => $name,
+            'code' => 'cus-'.generateRandomCode(),
             'email' => $email,
+            'country' => $country,
+            'city' => $city,
+            'tax_number' => $tax_number,
+            'address' => $address,
             'phone' => $phone,
             'status' => $status
         ];
@@ -73,12 +82,20 @@ if ($_GET['action'] === 'updateCustomer') {
     $id = validate_input($_POST['id']);
     $name = validate_input($_POST['name']);
     $email = validate_input($_POST['email']);
+    $country = validate_input($_POST['country']);
+    $city = validate_input($_POST['city']);
+    $tax_number = validate_input($_POST['tax_number']);
     $phone = validate_input($_POST['phone']);
+    $address = validate_input($_POST['address']);
     $status = validate_input($_POST['status']);
     if ($name != '' && $status != '') {
         $data = [
             'name' => $name,
             'email' => $email,
+            'country' => $country,
+            'city' => $city,
+            'tax_number' => $tax_number,
+            'address' => $address,
             'phone' => $phone,
             'status' => $status
         ];

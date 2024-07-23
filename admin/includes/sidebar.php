@@ -20,7 +20,8 @@
             </li>
             <li class="nav-item nav-category">web apps</li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false" aria-controls="emails">
+                <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false"
+                   aria-controls="emails">
                     <i class="link-icon" data-feather="package"></i>
                     <span class="link-title">Products</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
@@ -43,19 +44,17 @@
                 </div>
             </li>
 
-
-
-            <li class="nav-item nav-category">Manage Users</li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" role="button" aria-expanded="false" aria-controls="general-pages">
+                <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" role="button" aria-expanded="false"
+                   aria-controls="general-pages">
                     <i class="link-icon" data-feather="user-check"></i>
-                    <span class="link-title">Admin / Staff</span>
+                    <span class="link-title">Sales</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="general-pages">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="admins.php" class="nav-link">View Admin/Staff</a>
+                            <a href="sales.php" class="nav-link">All Sales</a>
                         </li>
                         <li class="nav-item">
                             <a href="create-admin.php" class="nav-link">Create</a>
@@ -64,14 +63,60 @@
                     </ul>
                 </div>
             </li>
+
+            <li class="nav-item nav-category">Manage Users</li>
             <li class="nav-item">
-                <a href="customers.php" class="nav-link">
-                    <i class="link-icon" data-feather="users"></i>
-                    <span class="link-title">Customers</span>
+                <a class="nav-link" data-bs-toggle="collapse" href="#manage-users" role="button" aria-expanded="false"
+                   aria-controls="general-pages">
+                    <i class="link-icon" data-feather="user"></i>
+                    <span class="link-title">Manage Users</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
+                <div class="collapse" id="manage-users">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="customers.php" class="nav-link">Customers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="suppliers.php" class="nav-link">Suppliers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="users.php" class="nav-link">Admin/Staff</a>
+                        </li>
+                    </ul>
+                </div>
             </li>
-
-
+            <li class="nav-item nav-category">Accounting</li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#accounting" role="button" aria-expanded="false"
+                   aria-controls="general-pages">
+                    <i class="link-icon" data-feather="user"></i>
+                    <span class="link-title">Manage Accounting</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="accounting">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="accounts.php" class="nav-link">Accounts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="transfer-money.php" class="nav-link">Transfer Money</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="deposits.php" class="nav-link">Deposits</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="deposit-categories.php" class="nav-link">Deposit Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="expenses.php" class="nav-link">Expenses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="expense-categories.php" class="nav-link">Expense Categories</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
         </ul>
     </div>
 </nav>
@@ -83,13 +128,15 @@
         <h6 class="text-muted mb-2">Sidebar:</h6>
         <div class="mb-3 pb-3 border-bottom">
             <div class="form-check form-check-inline">
-                <input type="radio" class="form-check-input" name="sidebarThemeSettings" id="sidebarLight" value="sidebar-light" checked>
+                <input type="radio" class="form-check-input" name="sidebarThemeSettings" id="sidebarLight"
+                       value="sidebar-light" checked>
                 <label class="form-check-label" for="sidebarLight">
                     Light
                 </label>
             </div>
             <div class="form-check form-check-inline">
-                <input type="radio" class="form-check-input" name="sidebarThemeSettings" id="sidebarDark" value="sidebar-dark">
+                <input type="radio" class="form-check-input" name="sidebarThemeSettings" id="sidebarDark"
+                       value="sidebar-dark">
                 <label class="form-check-label" for="sidebarDark">
                     Dark
                 </label>

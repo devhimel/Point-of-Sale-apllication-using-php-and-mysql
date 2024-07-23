@@ -36,26 +36,6 @@
             top: 50%;
             transform: translateY(-50%);
         }
-        .select2-container--default .select2-selection--single .select2-selection__rendered {
-            line-height: 1.5; /* Adjust line height if necessary */
-        }
-
-        .select2-container--default .select2-selection--single .select2-selection__arrow {
-            height: 100%;
-        }
-
-        .select2-container--default .select2-selection--single {
-            height: 38px; /* Adjust to match your input height */
-            border: 1px solid #ced4da; /* Match Bootstrap border color */
-            border-radius: 0.25rem; /* Match Bootstrap border radius */
-        }
-
-        .select2-container .select2-selection--single .select2-selection__rendered {
-            padding: 0.375rem 0.75rem; /* Adjust padding to match Bootstrap input padding */
-        }
-        .select2-container--open {
-            z-index: 9999 !important; /* Increase z-index to a high value */
-        }
     </style>
     <div class="page-content">
         <div class="container-fluid">
@@ -573,7 +553,7 @@
 
             function fetchProducts() {
                 $.ajax({
-                    url: "code.php?action=fetchProducts",
+                    url: "./code/products-code.php?action=fetchProducts",
                     method: "POST",
                     dataType: "json",
                     success: function (response) {
@@ -604,7 +584,7 @@
             // fetch Brands Categories and Units
             function fetchBrandSCategoriesUnits() {
                 $.ajax({
-                    url: "code.php?action=fetchBrandSCategoriesUnits",
+                    url: "./code/products-code.php?action=fetchBrandSCategoriesUnits",
                     method: "POST",
                     dataType: "json",
                     success: function (response) {
@@ -742,7 +722,7 @@
                 $('#insertBtn').attr('disabled', 'disabled');
                 e.preventDefault();
                 $.ajax({
-                    url: "code.php?action=insertProduct",
+                    url: "./code/products-code.php?action=insertProduct",
                     method: "POST",
                     data: new FormData(this),
                     contentType: false,
@@ -775,7 +755,7 @@
                 $('#editModal').modal('show');
                 fetchBrandSCategoriesUnits();
                 $.ajax({
-                    url: "code.php?action=fetchSingleProduct",
+                    url: "./code/products-code.php?action=fetchSingleProduct",
                     method: "POST",
                     dataType: "json",
                     data: {id: id},
@@ -804,7 +784,7 @@
                 $('#updateBtn').attr('disabled', 'disabled');
                 e.preventDefault();
                 $.ajax({
-                    url: "code.php?action=updateProduct",
+                    url: "./code/products-code.php?action=updateProduct",
                     method: "POST",
                     data: new FormData(this),
                     contentType: false,
@@ -835,7 +815,7 @@
                     var id = $(this).val();
                     var image = $(this).closest('tr').find('.delete_img').val();
                     $.ajax({
-                        url: "code.php?action=deleteSingleProduct",
+                        url: "./code/products-code.php?action=deleteSingleProduct",
                         method: "POST",
                         dataType: "json",
                         data: {id: id, image: image},

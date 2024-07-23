@@ -1,12 +1,12 @@
 <?php include "includes/header.php"; ?>
-
+    <link rel="stylesheet" href="./assets/vendors/bootstrap-datepicker/bootstrap-datepicker.css">
     <div class="page-content">
         <div class="container-fluid">
             <!-- start breadcrumb -->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Customers</li>
+                    <li class="breadcrumb-item active">Transfers Money</li>
                 </ol>
             </nav>
             <!-- end breadcrumb -->
@@ -15,28 +15,24 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header d-flex align-items-center justify-content-between">
-                            <h4 class="card-title mb-0">Customers List</h4>
+                            <h4 class="card-title mb-0">Transfers Money List</h4>
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#addModal">
-                                Add Customer
+                                Add Transfer Money
                             </button>
                         </div>
                         <div class="card-body">
                             <?php display_message() ?>
                             <div class="table-responsive">
-                                <table id="customersTable" class="table dt-responsive nowrap"
+                                <table id="accountsTable" class="table dt-responsive nowrap"
                                        style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Customer Code</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Tax Number</th>
-                                        <th>Total Sale Due</th>
-                                        <th>Total Sale Return Due</th>
-                                        <th>Status</th>
+                                        <th>Date</th>
+                                        <th>From Account</th>
+                                        <th>To Account</th>
+                                        <th>Amount</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -49,51 +45,38 @@
                 </div>
             </div>
             <!-- end data table -->
-            <!-- add Customer Modal -->
+            <!-- add Transfer Money Modal -->
             <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Add Customer</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Create Transfer Money</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="btn-close"></button>
                         </div>
                         <form method="post" id="insertForm">
                             <div class="modal-body">
                                 <div class="row">
-                                    <div class="col-6 mb3">
-                                        <label class="form-label">Name <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="name" placeholder="Enter Customer Name">
+                                    <div class="col-6 mb-3">
+                                        <label class="form-label">Date <span class="text-danger">*</span></label>
+                                        <input type="date" class="form-control date" name="date">
                                     </div>
                                     <div class="col-6 mb-3">
-                                        <label class="form-label">Email</label>
-                                        <input type="email" class="form-control" name="email" placeholder="Enter Customer Email">
+                                        <label class="form-label">Amount <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="amount"
+                                               placeholder="Enter Amount">
                                     </div>
                                     <div class="col-6 mb-3">
-                                        <label class="form-label">Country</label>
-                                        <input type="text" class="form-control" name="country" placeholder="Enter Customer Country">
+                                        <label class="form-label">From Account <span
+                                                    class="text-danger">*</span></label>
+                                        <select class="form-select from_account_id" name="from_account_id">
+                                            <option value="" selected disabled>Choose Account</option>
+                                        </select>
                                     </div>
                                     <div class="col-6 mb-3">
-                                        <label class="form-label">City</label>
-                                        <input type="text" class="form-control" name="city" placeholder="Enter Customer City">
-                                    </div>
-                                    <div class="col-6 mb-3">
-                                        <label class="form-label">Phone (Optional)</label>
-                                        <input type="text" class="form-control" name="phone" placeholder="Enter Customer Phone Number">
-                                    </div>
-                                    <div class="col-6 mb-3">
-                                        <label class="form-label">Tax Number</label>
-                                        <input type="text" class="form-control" name="tax_number" placeholder="Enter Customer Tax Number">
-                                    </div>
-                                    <div class="col-12 mb-3">
-                                        <label class="form-label">Address</label>
-                                        <textarea name="address" cols="30" rows="4" class="form-control" placeholder="Enter Customer Address"></textarea>
-                                    </div>
-                                    <div class="col-6 mb-3">
-                                        <label class="form-label">Status <span class="text-danger">*</span></label>
-                                        <select class="form-select" name="status">
-                                            <option value="1">Active</option>
-                                            <option value="0">Inactive</option>
+                                        <label class="form-label">To Account <span class="text-danger">*</span></label>
+                                        <select class="form-select to_account_id" name="to_account_id">
+                                            <option value="" selected disabled>Choose Account</option>
                                         </select>
                                     </div>
                                 </div>
@@ -106,13 +89,13 @@
                     </div>
                 </div>
             </div>
-            <!-- end add Customer Modal -->
-            <!-- start edit Customer Modal -->
+            <!-- end add Transfer Money Modal -->
+            <!-- start edit Transfer Money Modal -->
             <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Edit Customer</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Edit Transfer Money</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="btn-close"></button>
                         </div>
@@ -120,35 +103,24 @@
                             <div class="modal-body">
                                 <input type="hidden" name="id" id="id">
                                 <div class="row">
-                                    <div class="col-6 mb3">
-                                        <label class="form-label">Name <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control name" name="name" placeholder="Enter Customer Name">
-                                    </div>
-                                    <div class="col-6 mb-3">
-                                        <label class="form-label">Email</label>
-                                        <input type="email" class="form-control email" name="email" placeholder="Enter Customer Email">
-                                    </div>
-                                    <div class="col-6 mb-3">
-                                        <label class="form-label">Country</label>
-                                        <input type="text" class="form-control country" name="country" placeholder="Enter Customer Country">
-                                    </div>
-                                    <div class="col-6 mb-3">
-                                        <label class="form-label">City</label>
-                                        <input type="text" class="form-control city" name="city" placeholder="Enter Customer City">
-                                    </div>
-                                    <div class="col-6 mb-3">
-                                        <label class="form-label">Phone (Optional)</label>
-                                        <input type="text" class="form-control phone" name="phone" placeholder="Enter Customer Phone Number">
-                                    </div>
-                                    <div class="col-6 mb-3">
-                                        <label class="form-label">Tax Number</label>
-                                        <input type="text" class="form-control tax_number" name="tax_number" placeholder="Enter Customer Tax Number">
+                                    <div class="col-12 mb-3">
+                                        <label class="form-label">Account Name <span
+                                                    class="text-danger">*</span></label>
+                                        <input type="text" class="form-control account_name" name="account_name"
+                                               placeholder="Enter Account Name">
                                     </div>
                                     <div class="col-12 mb-3">
-                                        <label class="form-label">Address</label>
-                                        <textarea name="address" cols="30" rows="4" class="form-control address" placeholder="Enter Customer Address"></textarea>
+                                        <label class="form-label">Account Number <span
+                                                    class="text-danger">*</span></label>
+                                        <input type="text" class="form-control account_number" name="account_number"
+                                               placeholder="Enter Account Number">
                                     </div>
-                                    <div class="col-6 mb-3">
+                                    <div class="col-12 mb-3">
+                                        <label class="form-label">Details</label>
+                                        <textarea name="details" cols="30" rows="4" class="form-control details"
+                                                  placeholder="A few words...."></textarea>
+                                    </div>
+                                    <div class="col-12 mb-3">
                                         <label class="form-label">Status <span class="text-danger">*</span></label>
                                         <select class="form-select status" name="status">
                                             <option value="1">Active</option>
@@ -165,19 +137,20 @@
                     </div>
                 </div>
             </div>
-            <!-- end edit Customer Modal -->
+            <!-- end edit Transfer Money Modal -->
 
         </div>
     </div>
-
+    <script src="./assets/vendors/bootstrap-datepicker/bootstrap-datepicker.js"></script>
     <script>
         $(document).ready(function () {
-            let table = $('#customersTable').DataTable();
-            fetchCustomers();
+            // $('.date').datepicker();
+            let table = $('#accountsTable').DataTable();
+            fetchTransfersMoney();
 
-            function fetchCustomers() {
+            function fetchTransfersMoney() {
                 $.ajax({
-                    url: "./code/customers-code.php?action=fetchCustomers",
+                    url: "./code/transfer-money-code.php?action=fetchTransfersMoney",
                     method: "POST",
                     dataType: "json",
                     success: function (response) {
@@ -186,14 +159,10 @@
                         $.each(data, function (key, value) {
                             table.row.add([
                                 value.id,
-                                value.code,
-                                value.name,
-                                value.email ? value.email : 'N/A',
-                                value.phone ? value.phone : 'N/A',
-                                value.tax_number ? value.tax_number : 'N/A',
-                                value.total_sale_due ? value.total_sale_due : '0.00',
-                                value.total_sale_return_due ? value.total_sale_return_due : '0.00',
-                                value.status == 1 ? '<span class="badge bg-success">Active</span>' : '<span class="badge bg-danger">Inactive</span>',
+                                value.date,
+                                value.fromAccount,
+                                value.toAccount,
+                                value.amount,
                                 `<button type="button" class="btn btn-sm btn-warning editBtn" value="${value.id}"> <i class="ti ti-edit text-white"></i></button>
                              <button type="button" class="btn btn-sm btn-danger deleteBtn" value="${value.id}"> <i class="ti ti-trash text-white"></i></button>`
                             ]).draw(false);
@@ -201,12 +170,37 @@
                     }
                 });
             }
+            // fetch Accounts
+            function fetchAccounts() {
+                $.ajax({
+                    url: "./code/transfer-money-code.php?action=fetchAccounts",
+                    method: "POST",
+                    dataType: "json",
+                    success: function (response) {
+                        var data = response.data;
+                        $('.from_account_id').empty().append(`<option value="">Choose Account</option>`);
+                        $('.to_account_id').empty().append(`<option value="">Choose Account</option>`);
+
+                        $.each(data, function (key, value) {
+                            $('.from_account_id').append(`<option value="${value.id}">${value.account_name}</option>`);
+                        });
+                        $.each(data, function (key, value) {
+                            $('.to_account_id').append(`<option value="${value.id}">${value.account_name}</option>`);
+                        });
+                    }
+                })
+            }
+
+            // When addModal pop open modal
+            $('#addModal').on('shown.bs.modal', function () {
+                fetchAccounts()
+            });
 
             $('#insertForm').on('submit', function (e) {
                 $('#insertBtn').attr('disabled', 'disabled');
                 e.preventDefault();
                 $.ajax({
-                    url: "./code/customers-code.php?action=insertCustomer",
+                    url: "./code/transfer-money-code.php?action=insertTransferMoney",
                     method: "POST",
                     data: new FormData(this),
                     contentType: false,
@@ -219,37 +213,32 @@
                             $('#insertBtn').attr('disabled', false);
                             $('#addModal').modal('hide');
                             toastr.success(response.message, 'Success');
-                            fetchCustomers();
+                            fetchTransfersMoney();
                         } else if (response.status == 500) {
                             $('#insertBtn').attr('disabled', false);
                             toastr.error(response.message, 'Error!');
                         } else if (response.status == 400) {
                             $('#insertBtn').attr('disabled', false);
                             toastr.error(response.message, 'Error!');
-
                         }
                     }
                 });
             });
 
-            // edit category
-            $('#customersTable').on('click', '.editBtn', function () {
+            // edit account
+            $('#accountsTable').on('click', '.editBtn', function () {
                 var id = $(this).val();
                 $.ajax({
-                    url: "./code/customers-code.php?action=fetchSingleCustomer",
+                    url: "accounts-code.php?action=fetchSingleAccount",
                     method: "POST",
                     dataType: "json",
                     data: {id: id},
                     success: function (response) {
                         var data = response.data;
                         $('#id').val(data.id);
-                        $('.name').val(data.name);
-                        $('.email').val(data.email);
-                        $('.country').val(data.country);
-                        $('.city').val(data.city);
-                        $('.phone').val(data.phone);
-                        $('.tax_number').val(data.tax_number);
-                        $('.address').val(data.address);
+                        $('.account_name').val(data.account_num);
+                        $('.account_number').val(data.account_name);
+                        $('.details').val(data.note);
                         $('.status').val(data.status)
                         $('#editModal').modal('show');
                     }
@@ -260,7 +249,7 @@
                 $('#updateBtn').attr('disabled', 'disabled');
                 e.preventDefault();
                 $.ajax({
-                    url: "./code/customers-code.php?action=updateCustomer",
+                    url: "accounts-code.php?action=updateAccount",
                     method: "POST",
                     data: new FormData(this),
                     contentType: false,
@@ -273,31 +262,30 @@
                             $('#updateBtn').attr('disabled', false);
                             $('#editModal').modal('hide');
                             toastr.success(response.message, 'Success');
-                            fetchCustomers();
+                            fetchTransfersMoney();
                         } else if (response.status == 500) {
                             $('#updateBtn').attr('disabled', false);
                             toastr.error(response.message, 'Error!');
                         } else if (response.status == 400) {
                             $('#updateBtn').attr('disabled', false);
                             toastr.error(response.message, 'Error!');
-
                         }
                     }
                 });
             });
 
-            // Delete Category
-            $('#customersTable').on('click', '.deleteBtn', function () {
-                if (confirm("Are you sure you want to delete this customer?")) {
+            // Delete Account
+            $('#accountsTable').on('click', '.deleteBtn', function () {
+                if (confirm("Are you sure you want to delete this account?")) {
                     var id = $(this).val();
                     $.ajax({
-                        url: "./code/customers-code.php?action=deleteSingleCustomer",
+                        url: "accounts-code.php?action=deleteSingleAccount",
                         method: "POST",
                         dataType: "json",
                         data: {id: id},
                         success: function (response) {
                             if (response.status == 200) {
-                                fetchCustomers();
+                                fetchTransfersMoney();
                                 toastr.success(response.message, 'Success');
                             } else if (response.status == 500) {
                                 toastr.error(response.message, 'Error!');

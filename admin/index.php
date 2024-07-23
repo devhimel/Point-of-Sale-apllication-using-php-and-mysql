@@ -11,7 +11,7 @@
             </nav>
             <!-- end breadcrumb -->
             <!-- start greeting -->
-            <h4>Welcome back <span class="text-primary"><?= $_SESSION['loggedInUser']['name']; ?></span></h4>
+            <h4>Welcome back <span class="text-primary"><?= $_SESSION['loggedInUser']['first_name'].' '. $_SESSION['loggedInUser']['last_name']; ?></span></h4>
             <!-- end greeting -->
 
         </div>
