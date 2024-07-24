@@ -25,7 +25,7 @@
                         <div class="card-body">
                             <?php display_message() ?>
                             <div class="table-responsive">
-                                <table id="categoryTable" class="table dt-responsive nowrap"
+                                <table id="categoryTable" class="table table-responsive"
                                        style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                     <thead>
                                     <tr>
